@@ -4,12 +4,26 @@
         <meta charset="UTF-8">
         <title>Busca GITHUB</title>
         <link rel="stylesheet" href="GITHUB.css">
+        <link rel="stylesheet" href="reset.css">
     </head>
+
     <body>  
-        <input type="text" id="qual">
-        <button id="busca">pessoa do github</button><br><br>
-        <!-- <script src="GITHUB.js"></script> -->
-        <h2 id="nomeUsuario"></h2>
+        <header class="cabe">
+            <img class="logo" src="https://www.sferalabs.cc/wp-content/uploads/github-logo-white.png">
+            <div class="IB">
+                <input type="text" id="qual">
+                <button id="busca">pessoa do github</button><br><br>
+            </div>
+
+            <ul class="linksa">
+                <a class="cadal" href="https://desktop.github.com/">GITHUB desktop</a>
+                <a class="cadal" href="https://desktop.github.com/release-notes/">Notas de Lançamento</a>
+                <a class="cadal" href="https://github.com/team">Team</a>
+                <a class="cadal" href="https://docs.github.com/en/free-pro-team@latest/desktop">Help</a>
+            </ul>
+        </header>
+        
+        <h1 id="nomeUsuario"></h1>
         <img id="imagem">
         <script src="Model GITHUB.js"></script>
     </body>

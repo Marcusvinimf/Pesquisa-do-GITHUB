@@ -65,7 +65,7 @@ class UserModel
 
             body.appendChild(imgem)
 
-            imgem.innerHTML = `<img src="${dados[0].owner.avatar_url}"><br><br>`
+            imgem.innerHTML = `<img src="${dados[0].owner.avatar_url}"><br><br><h2>Lista de Repositorios</h2><br><br>`
 
 
             for(let i of dados){
@@ -114,7 +114,7 @@ class UserModel
 
         render(dds)
         {
-            nomeUsuario.innerHTML = dds.getNome()
+            nomeUsuario.innerHTML = `<br> Nome de acesso: ${dds.getNome()}`
         }
 
     }
@@ -126,7 +126,6 @@ class UserModel
 
         adicionaUsuario()
         {
-            
             let user = new UserModel();
             user.buscaUsuario();
 
@@ -137,6 +136,8 @@ class UserModel
             qual.focus()
 
             let remover = qual.remove()
+
+            busca.style.fontSize = "20px"
 
             busca.innerHTML = "Pesquisar outro GITHUB";
             busca.onclick = function(){
@@ -149,3 +150,24 @@ class UserModel
     
     busca.addEventListener( "click", controller.adicionaUsuario );
 
+    busca.addEventListener( "mouseover", ()=>{
+        busca.style.background = "burlywood"
+    } );
+    busca.addEventListener( "mouseout", ()=>{
+        busca.style.background = "white"
+    } );
+
+    let logo = document.querySelector('.logo')
+
+    logo.addEventListener( "click", ()=>{
+        window.location.href = "https://github.com/"
+    } );
+
+    logo.addEventListener( "mouseover", ()=>{
+        logo.style.width = "155px"
+        logo.style.cursor = "pointer"
+    } );
+    logo.addEventListener( "mouseout", ()=>{
+        logo.style.width = "150px"
+        logo.style.cursor = "pointer"
+    } );

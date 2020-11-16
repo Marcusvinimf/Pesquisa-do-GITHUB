@@ -1,7 +1,67 @@
-body{
-    background-image: url("https://github.githubassets.com/images/modules/open_graph/github-mark.png");
+body
+{
+    background-color: blanchedalmond;
+    text-align: center;
 }
 
-img{
-    width:  200px;
+img
+{
+    width:  350px;
+}
+
+.cabe
+{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    padding: 15px;
+}
+
+.logo
+{
+    background-color: black;
+    padding-left: 15px;
+    width: 150px;
+}
+
+.IB
+{
+    padding-top: 25px;
+}
+
+#busca
+{
+    background-color: wheat
+    color: black;
+    cursor: pointer;
+    height: 30px;
+}
+
+#qual
+{
+    background-color: burlywood;
+    font-size: 18px;
+    height: 28px;
+}
+
+.linksa
+{
+    padding-top: 38px;
+    padding-right: 55px;
+}
+
+.cadal 
+{
+    color: wheat;
+    padding-right: 100px;
+}
+
+.cadal:hover{
+    color: white;
+    font-size: 17PX;
+}
+
+#nomeUsuario{
+    font-size: 25px;
+    font-weight: bold
 }
