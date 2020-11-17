@@ -21,22 +21,22 @@ class UserModel
             
             request.addEventListener( "load", () =>{
     
-                if ( request.status == 200 )
-                {                
-                    let dados = this._processaResponse( request.responseText );
-
-                    this._atualiza( dados );
-                }
-                
                 try
                 {
-                    if(request.status != 200)
-                    throw new Error("coloque nome certo")
+
+                    if ( request.status == 200 )
+                    {                
+                        let dados = this._processaResponse( request.responseText );
+
+                        this._atualiza( dados );
+                    }else{
+                        throw new Error("atualize a pagine e tente um nome valido")
+                    }
                 }
                 
                 catch(error)
                 {
-                    alert("atualize a pagine e tente um nome valido")
+                    alert(error.message)
                     document.location.reload(true)
                 }
                 
@@ -70,21 +70,13 @@ class UserModel
 
             for(let i of dados){
 
-                // let maisRepo = document.createElement('p');
-                
-                // body.appendChild(maisRepo);
-
-                // maisRepo.innerHTML = `${i.name}`;
-
-                // console.log(this._nome = i.name) 
-
                 let link = document.createElement('a'); 
                 
                 body.appendChild(link); 
                 
                 link.innerHTML = `Repositorio: <a href="${i.html_url}">${i.name}</a><br>Linguagem: ${i.language}<br><br>`
 
-                console.log(this._links = i.html_url) 
+                console.log(this._links = i.html_url)
 
             }
 
@@ -94,18 +86,7 @@ class UserModel
         {
             return this._nome;
         }
-        // getRepos()
-        // {
-        //     return this._repositorio;
-        // }
-        // getLinks()
-        // {
-        //     return this._links;
-        // }
-        // getImagem()
-        // {
-        //     return this._imagem
-        // }
+
     }
 
     class UserView
