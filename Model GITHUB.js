@@ -12,6 +12,8 @@ class UserModel
             this._imagem = ""
 
             this._linguagem = ""
+
+            this._listaDeRepositorios = []
         }
 
         buscaUsuario()
@@ -23,7 +25,6 @@ class UserModel
     
                 try
                 {
-
                     if ( request.status == 200 )
                     {                
                         let dados = this._processaResponse( request.responseText );
@@ -61,14 +62,47 @@ class UserModel
 
             this._nome = dados[0].owner.login
 
+            this._imagem = dados[0].owner.avatar_url
+
+            this._listaDeRepositorios = dados
+
+        }
+
+        getRepos()
+        {
+            return this._listaDeRepositorios;
+        }
+
+        getNome()
+        {
+            return this._nome;
+        }
+
+        getImg()
+        {
+            return this._imagem;
+        }
+
+    }
+
+    class UserView
+    {
+        constructor() {}
+
+        render(dds)
+        {
+
+            let body = document.querySelector('body')
+
+            nomeUsuario.innerHTML = `<br> Nome de acesso: ${dds.getNome()}`
+
             let imgem = document.createElement('div')
 
             body.appendChild(imgem)
 
-            imgem.innerHTML = `<img src="${dados[0].owner.avatar_url}"><br><br><h2>Lista de Repositorios</h2><br><br>`
+            imgem.innerHTML = `<img src="${dds.getImg()}"><br><br><h2>Lista de Repositorios</h2><br><br>`
 
-
-            for(let i of dados){
+            for(let i of dds.getRepos()){
 
                 let link = document.createElement('a'); 
                 
@@ -80,22 +114,6 @@ class UserModel
 
             }
 
-        }
-
-        getNome()
-        {
-            return this._nome;
-        }
-
-    }
-
-    class UserView
-    {
-        constructor() {}
-
-        render(dds)
-        {
-            nomeUsuario.innerHTML = `<br> Nome de acesso: ${dds.getNome()}`
         }
 
     }
