@@ -37,7 +37,7 @@ class UserModel
                 
                 catch(error)
                 {
-                    alert(error.message)
+                    alert("atualize a pagine e tente um nome valido")
                     document.location.reload(true)
                 }
                 
@@ -115,7 +115,7 @@ class UserModel
             }
 
         }
-
+        
     }
 
     class UserController
